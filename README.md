@@ -10,8 +10,8 @@ usage: deNOV_M.py [-h] [--depth_min DEPTH_MIN] [--depth_max DEPTH_MAX] [--input_
                   [--child [CHILD [CHILD ...]]] [--output_file OUTPUT_FILE] [--out_dir OUT_DIR] [--parent1_id PARENT1_ID]
                   [--parent2_id PARENT2_ID]
 
-De Novo Mutations Discovery in the Offspring, Maher ALnajjar, 2025, MATE-GBI-Genetics and Genomics Dep. Dr.Barta's LAB,
-Gödöllő, HUNGARY
+De Novo Mutations Discovery in the Offspring, Maher ALnajjar, 2025,
+MATE-GBI-Genetics and Genomics Dep. Dr.Barta's LAB, Gödöllő, HUNGARY
 
 optional arguments:
 
