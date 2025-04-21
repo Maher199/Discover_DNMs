@@ -157,7 +157,7 @@ def discover_DNMs(vcf_file,output_file,threshold1,threshold2,threshold3,parent1_
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        os.system("python3 deNOV_M.py -h")
+        os.system("python3 Discover_DNMs.py -h")
     else:
         parent1_num = args.parent1_id
         parent2_num = args.parent2_id
