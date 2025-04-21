@@ -1,6 +1,7 @@
 # Discover_DNMs
-Leveraging Larger Family to detect DNMs
+Leveraging a Larger Family to detect DNMs
 
+![Alt text](DNMs_Sibling_plot.png) 
 
 ```bash
 python3 Discover_DNMs.py -h
