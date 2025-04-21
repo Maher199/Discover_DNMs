@@ -7,7 +7,7 @@ Leveraging a Larger Family to detect DNMs
 python3 Discover_DNMs.py -h
 
 
-usage: deNOV_M.py [-h] [--depth_min DEPTH_MIN] [--depth_max DEPTH_MAX] [--input_file INPUT_FILE]
+usage: Discover_DNMs.py [-h] [--depth_min DEPTH_MIN] [--depth_max DEPTH_MAX] [--input_file INPUT_FILE]
                   [--child [CHILD [CHILD ...]]] [--output_file OUTPUT_FILE] [--out_dir OUT_DIR] [--parent1_id PARENT1_ID]
                   [--parent2_id PARENT2_ID]
 
