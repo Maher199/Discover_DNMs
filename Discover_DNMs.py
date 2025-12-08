@@ -134,7 +134,7 @@ def discover_DNMs(vcf_file,output_file,threshold1,threshold2,threshold3,parent1_
                     if parent1_ad2 == 0 and parent2_ad2 == 0 and DP_parent1 >= threshold1  and  DP_parent1 <= threshold2 and DP_parent2 >= threshold1 and DP_parent2 <= threshold2:
                         if DP_child >= threshold1 and DP_child <= threshold2:
                            if True:
-                               if child_ad1 > 7 and child_ad2 > 7 and ad_ratio >= 0.5  and PL_child >= threshold3 and dp_cou == len(siblings):
+                               if child_ad1 > threshold1/2 and child_ad2 > threshold1/2 and ad_ratio >= 0.5  and PL_child >= threshold3 and dp_cou == len(siblings):
 
                                    CHROM.append(chr_num)
                                    LOCUS.append(locus)
