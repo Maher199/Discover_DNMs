@@ -8,7 +8,7 @@ parser = ArgumentParser(description="De Novo Mutations Discovery in the Offsprin
 parser.add_argument('--depth_min','-d_min', type=int, help="Define the MINIMUM Filtering Depth, default=15", default=15)
 parser.add_argument('--depth_max','-d_max', type=int, help="Define the MAXIMUM Filtering Depth, default=45", default=45)
 parser.add_argument('--input_file','-i',help="The file is a standard VCF file coming from GATK for example")
-parser.add_argument('--child','-c', nargs="*", help="list of children sample id(s) separated by spaces, otherwise all samples in the vcf will be considered")
+parser.add_argument('--child','-c', type=str, help="list of children sample id(s) separated by comma, otherwise all samples in the vcf will be considered")
 parser.add_argument('--output_file','-o', help="output file", default='DNMs_Result')
 parser.add_argument('--out_dir','-o_dir', help="indicate an output directory", default='./')
 parser.add_argument('--parent1_id','-p1', help="One of the parents id")
@@ -86,7 +86,7 @@ def discover_DNMs(vcf_file,output_file,threshold1,threshold2,threshold3,parent1_
                         globals()["DP_"+sibling] = int(data[globals()[sibling+"_idx"]].split(":")[DP_idx])
                     else:
                         break
-                    if  globals()["GT_"+sibling] in ["0/0","0|0"] and globals()[sibling+"_ad2"] in [0]:
+                    if  globals()["GT_"+sibling] in ["0/0","0|0"] and globals()[sibling+"_ad2"] in [0,1]:
                         GT_COUNT +=1
                 if GT_COUNT != len(siblings):
                     #print(locus,"skipped, variants found on other sibling")
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         denovo_output_file = out_dir +"/"+ args.output_file + ".tsv"
         depth_min = args.depth_min
         depth_max = args.depth_max
-        children = args.child
+        children = args.child.split(",") if args.child else [] ## Separated by comma
         print("children of interest\t", children)
         
         if args.input_file[-3:] == "vcf":
