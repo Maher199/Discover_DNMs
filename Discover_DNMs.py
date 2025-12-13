@@ -7,6 +7,7 @@ parser = ArgumentParser(description="De Novo Mutations Discovery in the Offsprin
 
 parser.add_argument('--depth_min','-d_min', type=int, help="Define the MINIMUM Filtering Depth, default=15", default=15)
 parser.add_argument('--depth_max','-d_max', type=int, help="Define the MAXIMUM Filtering Depth, default=45", default=45)
+parser.add_argument('--pl_value','-pl_min', type=int, help="Define the MINIMUM Phred-scaled genotype likelihoods (PL) , default=450", default=450)
 parser.add_argument('--input_file','-i',help="The file is a standard VCF file coming from GATK for example")
 parser.add_argument('--child','-c', type=str, help="list of children sample id(s) separated by comma, otherwise all samples in the vcf will be considered")
 parser.add_argument('--output_file','-o', help="output file", default='DNMs_Result')
@@ -165,11 +166,12 @@ if __name__ == "__main__":
         denovo_output_file = out_dir +"/"+ args.output_file + ".tsv"
         depth_min = args.depth_min
         depth_max = args.depth_max
+        pl_value = args.pl_value
         children = args.child.split(",") if args.child else [] ## Separated by comma
         print("children of interest\t", children)
         
         if args.input_file[-3:] == "vcf":
-            discover_DNMs(args.input_file,denovo_output_file,depth_min,depth_max,450,parent1_num,parent2_num,children)
+            discover_DNMs(args.input_file,denovo_output_file,depth_min,depth_max,pl_value,parent1_num,parent2_num,children)
          
         else:
             denovo_raw_file = args.input_file
